@@ -34,3 +34,14 @@ def filter_numbers(numbers_list, filter_type):
         return [number for number in numbers_list if number % 2 != 0]
     if filter_type == EVEN:
         return [number for number in numbers_list if number % 2 == 0]
+    if filter_type == PRIME:
+        number = []
+        for num in numbers_list:
+            if num > 1:
+                for i in range(2, num):
+                    if (num % i) == 0:
+                        break
+                    else:
+                        number.append(num)
+                        break
+        return number

@@ -18,6 +18,16 @@ ODD = "odd"
 EVEN = "even"
 PRIME = "prime"
 
+def is_prime(number):
+    """
+    проверка числа на простоту
+    """
+    if number < 2:
+        return False
+    for i in range(2, (number // 2) + 1):
+        if number % i == 0:
+            return False
+    return True
 
 def filter_numbers(numbers_list, filter_type):
     """
@@ -35,13 +45,4 @@ def filter_numbers(numbers_list, filter_type):
     if filter_type == EVEN:
         return [number for number in numbers_list if number % 2 == 0]
     if filter_type == PRIME:
-        number = []
-        for num in numbers_list:
-            if num > 1:
-                for i in range(2, num):
-                    if (num % i) == 0:
-                        break
-                    else:
-                        number.append(num)
-                        break
-        return number
+        return list(filter(is_prime, numbers_list))

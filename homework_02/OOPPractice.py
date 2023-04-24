@@ -14,6 +14,9 @@ class Time:
     def info(self):
         return f'{self.minutes} : {self.seconds}'
 
+    def __str__(self):
+        return f'{self.minutes} : {self.seconds}'
+
 t1 = Time(5, 50)
 print(t1.info())
 
@@ -22,5 +25,6 @@ print(t2.info())
 
 t3 = t1+t2+t1
 print(t3.info())
+print(t3)
 
 print(id(t1))
